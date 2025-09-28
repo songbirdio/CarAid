@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>CarAid - Customer Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #1f3c88;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    nav .icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    nav .icons span {
+      cursor: pointer;
+    }
+
+    /* Map Placeholder */
+    .map {
+      height: 100%;
+      width: 100%;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/9/93/Google_Maps_Logo_2020.svg") no-repeat center;
+      background-size: contain;
+      position: relative;
+    }
+
+    /* Bottom Sheet */
+    .bottom-sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 16px 16px 0 0;
+      padding: 20px;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+    }
+
+    .bottom-sheet h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .action-btn {
+      background: #f4f6f9;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      width: 100px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background: #ff6600;
+      color: white;
+    }
+#themeToggle {
+  cursor: pointer;
+  font-size: 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#themeToggle:hover {
+  transform: rotate(20deg) scale(1.1);
+  color: #ffcc00;
+}
+
+
+    /* Floating Action Button (FAB) */
+    .fab {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #ff6600;
+      color: white;
+      border: none;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">CarAid</div>
+    <div class="icons">
+        <span id="themeToggle"><i class="fas fa-sun"></i></span>
+        <a href="personal.html"><span>👤</span></a>
+    </div>
+  </nav>
+
+  <!-- Map Section -->
+  <div class="map" id="map">
+    <!-- Google Map will be embedded here -->
+  </div>
+
+  <!-- Bottom Sheet -->
+  <div class="bottom-sheet">
+    <h3>What would you like to do?</h3>
+    <div class="actions">
+      <button class="action-btn">Place Demand</button>
+      <button class="action-btn">My Requests</button>
+      <button class="action-btn">Chat</button>
+    </div>
+  </div>
+
+  <!-- Floating SOS Button -->
+  <a href="request.html"><button class="fab">+</button></a>
+
+  <!-- Google Maps JS API (for real map later) -->
+  <script>
+    // Example: Initialize Google Map (requires API key)
+    // function initMap() {
+    //   const map = new google.maps.Map(document.getElementById("map"), {
+    //     center: { lat: 6.5244, lng: 3.3792 }, // Lagos as default
+    //     zoom: 13,
+    //   });
+    // }
+  </script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script> -->
+<script>
+  const toggleBtn = document.getElementById("themeToggle");
+  let darkMode = false;
+
+  toggleBtn.addEventListener("click", () => {
+    darkMode = !darkMode;
+
+    if (darkMode) {
+      document.body.style.background = "#121212";
+      document.body.style.color = "#f4f6f9";
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Night icon
+    } else {
+      document.body.style.background = "#f4f6f9";
+      document.body.style.color = "#121212";
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Day icon
+    }
+  });
+</script>
+
+</body>
+</html>
