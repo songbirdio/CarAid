@@ -14,7 +14,7 @@
     }
 
     body {
-      background: linear-gradient(to right, #1f3c88, #ff6600);
+      background: linear-gradient(to right, #3356af, #f76d11);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,21 +23,24 @@
 
     .signup-container {
       background: rgba(255, 255, 255, 0.95);
-      padding: 40px 30px;
+      padding: 30px 10px;
       border-radius: 16px;
+      margin-top: 20px;
+      margin-bottom: 20px;
       width: 100%;
-      max-width: 420px;
+      max-width: 460px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .signup-container h2 {
       text-align: center;
       margin-bottom: 20px;
+      margin-top: -20px;
       color: #1f3c88;
     }
 
     .form-group {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .form-group label {
@@ -50,7 +53,7 @@
     .form-group input,
     .form-group select {
       width: 100%;
-      padding: 12px;
+      padding: 8px;
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 14px;
@@ -195,6 +198,57 @@
     .form-group input[type="file"] {
       display: none;
     }
+
+    /* ✅ Universal Responsive Template */
+
+/* Default: Desktop / Large Screens */
+body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Smartphones (portrait & small screens ≤600px) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .container, .chatroom, .page-section {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablets (601px – 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  .container, .chatroom, .page-section {
+    width: 90% !important;
+    margin: auto;
+  }
+}
+
+/* Landscape & Extra-wide screens */
+@media only screen and (orientation: landscape) {
+  body {
+    font-size: 17px;
+  }
+  .container, .chatroom, .page-section {
+    max-width: 95%;
+    margin: auto;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -293,14 +347,14 @@
     <span class="toggle-password" onclick="togglePassword('confirmPassword', this)">Show</span>
   </div>
       <!-- Submit -->
-     <a href="welcome.html"><button type="submit" class="submit-btn">Sign Up</button></a>
+     <button type="submit" class="submit-btn"><a href="welcome.html"> Sign Up</a></button>
     </form>
   </div>
-  <!-- Submit -->
+
 
 <!-- Sign in link -->
 <p class="signin-link">
-  Already have an account? <a href="welcome.html">Sign In</a>
+  Already have an account? <a href="#">Sign In</a>
 </p>
 
 <!-- Footer -->

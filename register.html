@@ -21,6 +21,16 @@
       min-height: 100vh;
     }
 
+        /*logo*/
+    img {
+      height: 40px;
+      width: 40px;
+      justify-content: center;
+      align-items: center;
+      margin-left: 180px;
+      margin-top: -40px;
+    }
+
     .registration-container {
       background: rgba(255, 255, 255, 0.95);
       padding: 40px 30px;
@@ -88,11 +98,63 @@
       color: #1f3c88;
       margin-bottom: 15px;
     }
+
+    /* ✅ Universal Responsive Template */
+
+/* Default: Desktop / Large Screens */
+body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Smartphones (portrait & small screens ≤600px) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .container, .chatroom, .page-section {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablets (601px – 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  .container, .chatroom, .page-section {
+    width: 90% !important;
+    margin: auto;
+  }
+}
+
+/* Landscape & Extra-wide screens */
+@media only screen and (orientation: landscape) {
+  body {
+    font-size: 17px;
+  }
+  .container, .chatroom, .page-section {
+    max-width: 95%;
+    margin: auto;
+  }
+}
+
   </style>
 </head>
 <body>
-
+        
   <div class="registration-container">
+    <img src="logo.png" alt="CarAid">
     <h2>Mechanic Registration</h2>
 
     <!-- STEP 1 -->

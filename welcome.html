@@ -55,22 +55,73 @@
       align-items: center;
       justify-content: center;
     }
+
+    /* ✅ Universal Responsive Template */
+
+/* Default: Desktop / Large Screens */
+body {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Smartphones (portrait & small screens ≤600px) */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .container, .chatroom, .page-section {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+  }
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Tablets (601px – 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  .container, .chatroom, .page-section {
+    width: 90% !important;
+    margin: auto;
+  }
+}
+
+/* Landscape & Extra-wide screens */
+@media only screen and (orientation: landscape) {
+  body {
+    font-size: 17px;
+  }
+  .container, .chatroom, .page-section {
+    max-width: 95%;
+    margin: auto;
+  }
+}
+
   </style>
 </head>
 <body>
 
   <div class="message-container">
     <div class="message active" id="msg1">
-      <img src="caraid.png" alt="Welcome">
+   <img src="logo.png" alt="Welcome">
       <p>Welcome to CarAid!</p>
     </div>
     <div class="message" id="msg2">
-      <img src="caraid.png" alt="Congratulations">
+    <img src="logo.png" alt="Congratulations">
       <p>Congratulations on joining us!</p>
     </div>
     <div class="message" id="msg3">
-      <img src="caraid.png" alt="Personalized">
-      <p id="personalMessage">Hello, dear customer!</p>
+      <img src="logo.png" alt="Personalized">
+      <p id="personalMessage">Hello, Dear customer!</p>
     </div>
   </div>
 
