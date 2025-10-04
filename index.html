@@ -20,9 +20,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: url("cars.jpg") no-repeat center center / cover;
+  background: url("cars.jpg") no-repeat no-repeat center center/cover;
   position: relative;
   color: #333;
+  overflow: hidden;
 }
 
 /* Overlay layer for transparency effect */
@@ -31,10 +32,11 @@ body::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: rgba(255, 255, 255, 0.5); /* 50% white overlay */
   z-index: -1;
+
 }
 
 
@@ -45,17 +47,18 @@ body::before {
     }
 
     header img {
-      width: 120px;
+      width: 80px;
+      height: 80px;
       margin-bottom: 10px;
     }
 
 h4 {
   font-family: 'Playfair Display', serif; /* elegant serif font */
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 500;
   color: #1f3c88; /* navy blue */
   letter-spacing: 2px;
-  margin-bottom: 10px;
+  margin-bottom: -50px;
   text-transform: capitalize;
   position: relative;
   display: inline-block;

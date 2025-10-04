@@ -28,7 +28,7 @@
       margin-top: 20px;
       margin-bottom: 20px;
       width: 100%;
-      max-width: 460px;
+      max-width: 450px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
@@ -95,7 +95,7 @@
 }
 
 
-    .submit-btn {
+    .submit {
       width: 100%;
       padding: 14px;
       background: #ff6600;
@@ -109,7 +109,7 @@
       margin-top: 10px;
     }
 
-    .submit-btn:hover {
+    .submit:hover {
       background: #e05500;
     }
 
@@ -255,7 +255,7 @@ body {
 
   <div class="signup-container">
     <h2>Customer Sign Up</h2>
-    <form action="dashboard.html" method="POST">
+    <form action="welcome.html" method="POST">
       
 <!-- Profile Image Upload -->
 <div class="form-group profile-upload">
@@ -346,9 +346,11 @@ body {
     <input type="password" id="confirmPassword" name="confirmPassword" required>
     <span class="toggle-password" onclick="togglePassword('confirmPassword', this)">Show</span>
   </div>
+
       <!-- Submit -->
-     <button type="submit" class="submit-btn"><a href="welcome.html"> Sign Up</a></button>
-    </form>
+  <a href="welcome.html" class="submit" style="display:inline-block;text-align:center;text-decoration:none;">Sign up</a>
+ 
+  </form>
   </div>
 
 
@@ -388,6 +390,7 @@ body {
       el.textContent = "Show";
     }
   }
+
 </script>
 
 </body>
