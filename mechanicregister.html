@@ -23,11 +23,11 @@
 
         /*logo*/
     img {
-      height: 40px;
-      width: 40px;
+      height: 50px;
+      width: 50px;
       justify-content: center;
       align-items: center;
-      margin-left: 180px;
+      margin-left: 170px;
       margin-top: -40px;
     }
 
@@ -42,18 +42,18 @@
 
     h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: #1f3c88;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .form-group label {
       display: block;
       margin-bottom: 6px;
-      font-size: 14px;
+      font-size: 12px;
       color: #333;
     }
 
@@ -199,7 +199,7 @@ body {
         <input type="file" id="voterCard" name="voterCard" accept="image/*" required>
       </div>
 
-      <button type="submit" class="submit-btn">Final Submit</button>
+      <a href="home.html"><button type="submit" class="submit-btn">Final Submit</button></a>
     </form>
   </div>
 
@@ -221,21 +221,22 @@ body {
       step2.classList.remove("hidden");
     });
 
-    // Handle Step 2 submission
-    step2.addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Registration submitted successfully!");
-      // Here you’d typically send the form data to the backend
-    });
-    // Example: inside your form submission handler
+  // Handle Step 2 submission
 step2.addEventListener("submit", function(e) {
   e.preventDefault();
+  
+  // Show success alert
   alert("Registration submitted successfully!");
   
-  // Redirect to onboarding page in another folder
-  window.location.href = "../mechanic/onboarding.html";  // adjust path
+  // Simulate short delay before redirecting
+  setTimeout(() => {
+    window.location.href = "home.html";  // ← your home page file here
+  }, 1000);
+  
+  // In a real project, you’d send form data to the backend here:
+  // fetch("/api/mechanic/register", { method: "POST", body: new FormData(step2) })
 });
-
+ 
   </script>
 
 </body>
