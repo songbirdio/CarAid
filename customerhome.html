@@ -9,6 +9,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       * {
         margin: 0;
@@ -21,26 +25,19 @@
         height: 100%;
         width: 100%;
       }
-
-      /*logo*/
-      img {
-        height: 80px;
-        width: 80px;
+      /* Each section takes 100% of viewport height */
+      .section {
+        height: 100vh; /* 100% of viewport height */
+        display: flex;
         align-items: center;
-        margin-top: -30px;
-        z-index: 4;
+        justify-content: center;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: 600;
       }
-
-      .head {
-        font-size: 1rem;
-        font-weight: bold;
-        color: #fb923c;
-        margin-top: 0px;
-      }
-
-      .main {
-        font-size: 0.5rem;
-        color: #ffffff;
+      img {
+        align-items: left;
+        position: left;
       }
 
       /* Slideshow wrapper */
@@ -68,7 +65,7 @@
 
       .slide.active {
         opacity: 1;
-        z-index: -1;
+        z-index: 20;
       }
 
       /* Text content */
@@ -88,16 +85,16 @@
         bottom: 0;
         left: 100px;
         right: 0;
-        background: #0e2a3b;
-        border-radius: 10px 0px 0 0;
-        padding: 15px;
-        box-shadow: 0 -4px 12px #fb923c;
-        z-index: 2 ;
+        height: 60px;
+        background: transparent;
+        border-radius: 5px 0px 0 0;
+        padding: 8px;
+        z-index: 2;
       }
 
       .bottom-sheet h3 {
         font-size: 16px;
-        margin-bottom: -50px;
+        margin-bottom: -40px;
         color: #333;
       }
 
@@ -106,33 +103,29 @@
         margin-left: -5px;
         font-size: smaller;
       }
-      .actions {
-        display: flex;
-        justify-content: space-around;
-      }
 
       .actions {
         display: flex;
         gap: 15px;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 2px;
       }
 
       .action-btn {
-        background: #113450; /* navy blue */
+        background: #254763;
         color: white;
-        padding: 12px 20px;
+        padding: 3px 20px;
         border-radius: 8px;
         font-size: 15px;
-        text-decoration: none; /* remove underline */
-        display: inline-block; /* makes links behave like buttons */
+        text-decoration: none;
+        display: inline-block;
         transition: background 0.3s ease, transform 0.2s ease;
       }
 
       .action-btn:hover {
-        background: #113450; /* darker navy on hover */
+        background: #113450;
         transform: scale(1.05);
-        text-decoration: none; /* keep it clean */
+        text-decoration: none;
       }
 
       .action-btn:active {
@@ -152,14 +145,14 @@
 
       /* Floating Action Button (FAB) */
       .fab {
-        position: fixed;
+        position: absolute;
         bottom: 90px;
         right: 20px;
         background: #ff6600;
         color: white;
         border: none;
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         font-size: 28px;
         display: flex;
@@ -172,118 +165,186 @@
 
       /* Sidebar Styles */
       .sidebar {
-        width: 80px; /* Collapsed width */
+        width: 80px;
         transition: width 0.3s ease-in-out;
         overflow: hidden;
         z-index: 10;
       }
+
       .sidebar:hover {
-        width: 170px; /* Expanded width */
+        width: 170px;
       }
+
+      .logo {
+        position: absolute;
+        top: 20px;
+        left: 80px;
+        z-index: 2;
+      }
+
+      .logo img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+      }
+
       .sidebar-item {
         transition: all 0.2s ease-in-out;
       }
+
       .sidebar-item:hover {
         transform: translateX(10px);
         background-color: rgba(255, 255, 255, 0.1);
       }
+
       .sidebar-item.active {
         background-color: rgba(255, 255, 255, 0.2);
-        border-left: 4px transparent #fb923c;
+        border-left: 4px solid #fb923c;
       }
+
       .sidebar-item span {
-        display: none; /* Hide text by default */
-        white-space: nowrap; /* Prevent text wrapping */
+        display: none;
+        white-space: nowrap;
       }
+
       .sidebar:hover .sidebar-item span {
-        display: inline; /* Show text on hover */
+        display: inline;
       }
-      .sidebar .logo-text {
-        display: none; /* Hide logo text by default */
+
+      /* Responsive */
+      @media only screen and (max-width: 600px) {
+        body {
+          font-size: 14px;
+          padding: 8px;
+        }
+        .container,
+        .chatroom,
+        .page-section {
+          width: 100% !important;
+          height: auto !important;
+          margin: 0 !important;
+          border-radius: 0 !important;
+        }
+        video,
+        iframe {
+          max-width: 100%;
+          height: auto;
+        }
+        .sidebar {
+          width: 60px;
+        }
+        .sidebar:hover {
+          width: 150px;
+        }
+        .bottom-sheet {
+          left: 140px;
+        }
       }
-      .sidebar:hover .logo-text {
-        display: inline; /* Show logo text on hover */
+
+      @media only screen and (min-width: 601px) and (max-width: 1024px) {
+        body {
+          font-size: 16px;
+        }
+        .container,
+        .chatroom,
+        .page-section {
+          width: 90% !important;
+          margin: auto;
+        }
+        .sidebar {
+          width: 70px;
+        }
+        .sidebar:hover {
+          width: 160px;
+        }
+        .bottom-sheet {
+          left: 150px;
+        }
       }
-      /* ✅ Universal Responsive Template */
 
-/* Default: Desktop / Large Screens */
-body {
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-/* Smartphones (portrait & small screens ≤600px) */
-@media only screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
-    padding: 8px;
-  }
-  .container, .chatroom, .page-section {
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    border-radius: 0 !important;
-  }
-  img, video, iframe {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* Tablets (601px – 1024px) */
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  body {
-    font-size: 16px;
-  }
-  .container, .chatroom, .page-section {
-    width: 90% !important;
-    margin: auto;
-  }
-}
-
-/* Landscape & Extra-wide screens */
-@media only screen and (orientation: landscape) {
-  body {
-    font-size: 17px;
-  }
-  .container, .chatroom, .page-section {
-    max-width: 95%;
-    margin: auto;
-  }
-}
-
+      @media only screen and (orientation: landscape) {
+        body {
+          font-size: 17px;
+        }
+        .container,
+        .chatroom,
+        .page-section {
+          max-width: 95%;
+          margin: auto;
+        }
+      }
     </style>
   </head>
-  <header>
-    
-  </header>
   <body class="text-white">
     <div class="slideshow">
       <div
         class="slide"
-        style="background-image: url('https://picsum.photos/id/1018/1600/900')"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1600&h=900');
+        "
       ></div>
       <div
         class="slide"
-        style="background-image: url('https://picsum.photos/id/1015/1600/900')"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&h=900');
+        "
       ></div>
       <div
         class="slide"
-        style="background-image: url('https://picsum.photos/id/1016/1600/900')"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&h=900');
+        "
       ></div>
       <div
         class="slide"
-        style="background-image: url('https://picsum.photos/id/1020/1600/900')"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1506521781261-d73483cf0fef?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1504215680853-3f9f99b4916f?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1519241047950-901d4c759707?auto=format&fit=crop&w=1600&h=900');
+        "
+      ></div>
+      <div
+        class="slide"
+        style="
+          background-image: url('https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=1600&h=900');
+        "
       ></div>
     </div>
     <div class="flex h-screen">
       <!-- Sidebar -->
-      <div class="sidebar bg-gradient-to-b from-[#113450] to-[#0e2a3b] shadow-xl">
-        <div class="p-6 flex items-center space-x-3">
-          <i class="fas fa-rocket text-orange-500 text-2xl"></i>
-          <h1 class="logo-text text-2xl font-bold text-orange-400"></h1>
+      <div
+        class="sidebar bg-gradient-to-b from-[#113450] to-[#0e2a3b] shadow-xl"
+      >
+        <div>
+          <span> </span>
         </div>
         <nav class="mt-6">
           <ul>
@@ -321,22 +382,23 @@ body {
         </nav>
       </div>
 
-           <!-- Main Content -->
-      <div class="flex-1 p-10">
-        <img src="logo.png" alt="CarAid">
-        </div>
-
-    <!-- Bottom Sheet -->
-    <div class="bottom-sheet">
-      <div class="actions">
-        <a href="order.html" class="action-btn">Demand</a>
-        <a href="tracker.html" class="action-btn">Tracker</a>
-        <a href="chat.html" class="action-btn">Chat</a>
-        <a href="settings.html" class="action-btn">Settings</a>
+      <!-- Main Content -->
+      <div class="logo">
+        <img src="logo.png" alt="CarAid" />
       </div>
+
+      <!-- Bottom Sheet -->
+      <div class="bottom-sheet">
+        <div class="actions">
+          <a href="order.html" class="action-btn">Demand</a>
+          <a href="tracker.html" class="action-btn">Tracker</a>
+          <a href="chat.html" class="action-btn">Chat</a>
+          <a href="settings.html" class="action-btn">Settings</a>
+        </div>
+      </div>
+      <!-- Floating SOS Button -->
+      <a href="livelocation.html"><button class="fab">+</button></a>
     </div>
-    <!-- Floating SOS Button -->
-    <a href="livelocation.html"><button class="fab">+</button></a>
 
     <script>
       // Add active class to clicked sidebar item
@@ -351,12 +413,24 @@ body {
       const slides = document.querySelectorAll(".slide");
       let index = 0;
 
+      // Preload all images to prevent loading delays
+      slides.forEach((slide) => {
+        const img = new Image();
+        img.src = slide.style.backgroundImage.slice(5, -2); // Extract URL from background-image
+      });
+
       function showSlide() {
-        slides.forEach((slide, i) => {
-          slide.classList.remove("active");
-          if (i === index) slide.classList.add("active");
-        });
-        index = (index + 1) % slides.length;
+        // Calculate next slide index
+        const nextIndex = (index + 1) % slides.length;
+
+        // Add active class to next slide first
+        slides[nextIndex].classList.add("active");
+
+        // Remove active class from current slide after a slight delay
+        setTimeout(() => {
+          slides[index].classList.remove("active");
+          index = nextIndex;
+        }, 20); // Reduced delay for tighter transition
       }
 
       // Show the first slide immediately
